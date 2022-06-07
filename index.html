@@ -12,14 +12,58 @@
 
 <body>
     <header>
-        <img src="img/logo.png">
+        <img src="img/logo.png" width="40px">
         <div class="search">
             <!-- <img src="img/Search.png"> -->
             <i class="uil uil-search"></i>
             <input type="text" name="seacrh" placeholder="Cari Barang">
         </div>
-        <img src="img/plus.png" width="24px" height="24px">
+        <a href="#" class="plus-header"></a>
     </header>
+    <main>
+        <section class="barang">
+            <div class="list-barang">
+                <div class="card-head">
+                    <img src="img/produk.png" width="100%" cla>
+                </div>
+                <div class="card-body">
+                    <a href="#" class="nama-barang">Helm Pull & Bear</a>
+                    <span class="harga">Rp. 50.000</span>
+                </div>
+            </div>
+            <script>
+                for (let i = 0; i < 7; i++) {
+                    document.write(`<div class="list-barang">`);
+                    document.write(`<div class="card-head">`);
+                    document.write(`<img src="img/produk.png" width="100%">`);
+                    document.write(`</div>`);
+                    document.write(`<div class="card-body">`);
+                    document.write(`<a href="#" class="nama-barang">Helm Pull & Bear</a>`);
+                    document.write(`<span class="harga">Rp. 50.000</span>`);
+                    document.write(`</div>`);
+                    document.write(`</div>`);
+                }
+            </script>
+        </section>
+    </main>
+    <menu>
+        <a href="#" class="menu-list">
+            <i class="uil uil-estate"></i>
+            <span>Beranda</span>
+        </a>
+        <a href="#" class="menu-list">
+            <i class="uil uil-shopping-cart"></i>
+            <span>Barang</span>
+        </a>
+        <a href="#" class="menu-list">
+            <i class="uil uil-plus-square"></i>
+            <span>Tambah</span>
+        </a>
+        <a href="#" class="menu-list">
+            <i class="uil uil-file-graph"></i>
+            <span>Laporan</span>
+        </a>
+    </menu>
 </body>
 
 </html>
