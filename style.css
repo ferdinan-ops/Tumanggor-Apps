@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
-    --color-primary: #35ADEC;
+    --color-primary: #41B548;
     --color-secondary: #A1A1A1;
     --box-shadow: 0px 0px 10px rgba(165, 165, 165, 0.2);
     --color-icon: #B6B6B6;
     --padding-section: 20px 9%;
     --padding-header: 0 9%;
     --background-header: white;
+    --gradient: linear-gradient(0deg, rgba(51, 51, 51, 0.63) 0%, rgba(196, 196, 196, 0) 100%);
 }
 
 * {
@@ -33,6 +34,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
+    z-index: 9999;
 }
 
 .search {
@@ -61,18 +63,15 @@ header {
 
 .search i {
     position: absolute;
-    font-size: 22px;
-    top: 4px;
-    left: 8px;
+    font-size: 18px;
+    top: 12px;
+    left: 10px;
     color: var(--color-icon);
 }
 
-.plus-header {
-    background-image: url(img/plus.png);
-    width: 35px;
-    height: 35px;
-    background-repeat: no-repeat;
-    background-size: cover;
+header a {
+    font-size: 28px;
+    color: var(--color-primary);
 }
 
 /* menu */
@@ -81,13 +80,13 @@ menu {
     padding: var(--padding-header);
     justify-content: space-between;
     align-items: center;
-    /* height: 84px; */
     box-shadow: var(--box-shadow);
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     background-color: var(--background-header);
+    z-index: 2;
 }
 
 .menu-list {
@@ -102,8 +101,15 @@ menu .menu-list:nth-child(1) {
     color: var(--color-primary);
 }
 
+menu .menu-list:nth-child(2):hover,
+menu .menu-list:nth-child(3):hover,
+menu .menu-list:nth-child(4):hover {
+    color: var(--color-primary);
+}
+
 .menu-list i {
-    font-size: 24px;
+    font-size: 20px;
+    margin-bottom: 8px;
 }
 
 .menu-list span {
@@ -144,3 +150,101 @@ menu .menu-list:nth-child(1) {
     font-weight: 500;
     color: var(--color-secondary);
 }
+
+.card-head {
+    position: relative;
+    z-index: 1;
+}
+
+.gambar-brg {
+    width: 100%;
+    height: 91px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px 10px 0 0;
+
+}
+
+.card-head p {
+    font-size: 12px;
+    font-weight: 500;
+    box-shadow: var(--box-shadow);
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: var(--background-header);
+    padding: 3px 7px 2px 7px;
+    border-radius: 10px;
+}
+
+.rak {
+    background: var(--gradient);
+    position: absolute;
+    top: 38px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.rak>* {
+    font-size: 13px;
+    color: var(--background-header);
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+
+/* detail produk */
+.detail {
+    background: var(--color-icon);
+}
+
+.header-detail {
+    font-weight: 4 00;
+    margin-top: -6px;
+    padding: 10px 15px;
+    background-color: var(--background-header);
+}
+
+.header-detail h1 {
+    font-weight: 500;
+}
+
+.header-detail p {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--color-secondary);
+}
+
+.detail-produk {
+    background-color: var(--background-header);
+    padding: 10px 15px;
+    margin-top: 5px;
+}
+
+.detail-produk table {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.detail-produk h3 {
+    font-weight: 500;
+}
+
+.detail-produk table tr td {
+    font-size: 14px;
+    border-bottom: 1px solid #A1A1A1;
+    padding: 5px 0;
+}
+
+/* .gambar-detail {
+    position: relative;
+} */
+
+/* .tambah-jual {
+    font-size: 80px;
+
+    position: absolute;
+    bottom: -45px;
+    right: 20px;
+} */
