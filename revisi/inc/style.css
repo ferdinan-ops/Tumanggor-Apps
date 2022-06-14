@@ -155,3 +155,43 @@ header {
 .menu-list span {
     font-size: 12px;
 }
+
+/* detail */
+.img-detail {
+    padding: var(--padding-section);
+    text-align: center;
+}
+
+.img-detail img {
+    width: 100%;
+    box-shadow: var(--box-shadow);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.product-name {
+    padding: var(--padding-header);
+    text-align: center;
+}
+
+.detail-product {
+    margin: var(--padding-section);
+    margin-bottom: 100px;
+    box-shadow: var(--box-shadow);
+    padding: 15px;
+}
+
+.detail-product table {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.detail-product h4 {
+    font-weight: 600;
+}
+
+.detail-product table tr td {
+    font-size: 14px;
+    border-bottom: 1px solid #A1A1A1;
+    padding: 5px 0;
+}
