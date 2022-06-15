@@ -2,8 +2,8 @@
 
 :root {
     --primary-color: #30AB75;
-    --secondary-color: #F2F0F4;
-    --icon-color: #8E8E8E;
+    --secondary-color: #f2f2f2;
+    --icon-color: #ababab;
     --font-color: #1B1B1B;
     --padding-section: 20px 9%;
     --padding-header: 0 9%;
@@ -20,6 +20,10 @@
     font-family: Poppins, sans-serif;
 }
 
+body {
+    background-color: #F9FDFE;
+}
+
 header {
     padding: var(--padding-section);
     display: flex;
@@ -29,6 +33,13 @@ header {
 
 .hamburger i {
     font-size: 20px;
+}
+
+.hamburger .shop {
+    font-size: 30px;
+    background-color: #30ab7667;
+    border-radius: 50%;
+    padding: 0 5px;
 }
 
 .profile-picture img {
@@ -50,14 +61,17 @@ header {
     display: flex;
     align-items: center;
     background-color: var(--secondary-color);
-    padding: 0 10px;
+    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+    padding: 0 15px;
     height: 40px;
     border-radius: 10px;
     width: 82%;
+    font-size: 16px;
 }
 
 .search-box i {
     color: var(--icon-color);
+    /* color: #2C283F; */
     margin-right: 15px;
 }
 
@@ -65,6 +79,33 @@ header {
     border: none;
     background-color: var(--secondary-color);
     width: 100%;
+}
+
+.list-kategori {
+    padding: var(--padding-section);
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 45%;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 15px;
+}
+
+.list-kategori::-webkit-scrollbar {
+    display: none;
+}
+
+.kategori {
+    text-align: center;
+    display: inline-block;
+    padding: 7px 10px;
+    border-radius: 30px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.kategori i {
+    margin-right: 10px;
 }
 
 .add-product {
@@ -81,7 +122,8 @@ header {
     padding: var(--padding-section);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 25px 20px;
+    margin-bottom: 90px;
 }
 
 .product {
@@ -107,8 +149,8 @@ header {
     background-color: var(--primary-color);
     padding: 8px 0;
     text-align: center;
-    font-size: 14px;
-    border-radius: 10px;
+    font-size: 12px;
+    border-radius: 13px;
 }
 
 .add a {
@@ -176,7 +218,6 @@ header {
 
 .detail-product {
     margin: var(--padding-section);
-    margin-bottom: 100px;
     box-shadow: var(--box-shadow);
     padding: 15px;
 }
@@ -194,4 +235,136 @@ header {
     font-size: 14px;
     border-bottom: 1px solid #A1A1A1;
     padding: 5px 0;
+}
+
+.menu-detail {
+    padding: var(--padding-header);
+    padding-bottom: 20px;
+}
+
+.menu-detail a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    border-radius: 8px;
+}
+
+.menu-detail a:nth-child(1) {
+    background-color: #F8F8FA;
+    color: var(--primary-color);
+}
+
+.menu-detail a:nth-child(2) {
+    background-color: #30ab764a;
+    color: var(--primary-color);
+}
+
+.menu-detail a:nth-child(3) {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.container-menu-detail {
+    box-shadow: var(--box-shadow);
+    /* background-color: #30AB75; */
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* barang */
+.barang {
+    padding: var(--padding-section);
+}
+
+.punya-barang {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.punya-barang a {
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.tambah-barang {
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    display: block;
+    padding: 10px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+}
+
+.punya-barang a i {
+    font-size: 38px;
+}
+
+.product-table {
+    padding: var(--padding-section);
+    margin-bottom: 100px;
+}
+
+.product-table h4 {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+
+.product-table th {
+    font-size: 14px;
+}
+
+.product-table table {
+    width: 100%;
+    text-align: center;
+}
+
+.product-table table thead {
+    background-color: #30AB75;
+}
+
+.product-table table tbody {
+    background-color: #dfdfe1;
+}
+
+/* laporan */
+.laporan {
+    padding: var(--padding-section);
+}
+
+.total {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    background-color: #30ab761c;
+    padding: 10px;
+    color: var(--primary-color);
+    border-bottom: 5px solid var(--primary-color);
+}
+
+.img-laporan i {
+    font-size: 32px;
+    margin-right: 20px;
+}
+
+.desc-laporan {
+    font-weight: 500;
+}
+
+.desc-laporan p {
+    font-size: 12px;
+}
+
+.desc-laporan span {
+    font-size: 18px;
 }
