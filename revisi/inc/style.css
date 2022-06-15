@@ -368,3 +368,32 @@ header {
 .desc-laporan span {
     font-size: 18px;
 }
+
+/* tambah barang */
+.form-tambah-barang {
+    padding: var(--padding-section);
+}
+
+.form-tambah-barang form>* {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    font-weight: 500;
+}
+
+.form-tambah-barang form input,
+.form-tambah-barang form select {
+    margin-bottom: 15px;
+    font-weight: 400;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid var(--icon-color);
+}
+
+.form-tambah-barang form input[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-weight: 500;
+}
