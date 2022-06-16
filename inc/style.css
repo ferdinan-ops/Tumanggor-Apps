@@ -136,6 +136,13 @@ header {
     align-items: center;
 }
 
+.namaBarang {
+    display: block;
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
+}
+
 
 .desc {
     margin: 10px;
@@ -377,7 +384,7 @@ header {
 .form-tambah-barang form>* {
     display: block;
     width: 100%;
-    margin: 5px 0;
+    margin: 10px 0;
     font-weight: 500;
 }
 
@@ -396,4 +403,5 @@ header {
     border: none;
     padding: 10px;
     font-weight: 500;
+    margin: 20px 0;
 }

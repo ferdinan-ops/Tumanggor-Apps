@@ -9,12 +9,27 @@
     <script src="https://kit.fontawesome.com/ca43952785.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="inc/style.css">
+    <style>
+        .menu .menu-list:nth-child(2) {
+            color: var(--primary-color);
+        }
+
+        .menu .menu-list:nth-child(1) {
+            color: var(--icon-color);
+        }
+
+        .menu .menu-list:nth-child(1):hover,
+        .menu .menu-list:nth-child(3):hover,
+        .menu .menu-list:nth-child(4):hover {
+            color: var(--primary-color);
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <div class="hamburger">
-            <i class="fa-solid fa-angle-left"></i>
+            <i class="fa-solid fa-angle-left" onclick="history.back();"></i>
         </div>
         <h5>Barang</h5>
         <!-- <h1>Barang</h1> -->
@@ -23,7 +38,7 @@
         </div>
     </header>
     <section class="barang">
-        <a href="#" class="tambah-barang">Tambah Barang</a>
+        <a href="./?m=tambah-barang" class="tambah-barang">Tambah Barang</a>
         <div class="punya-barang">
             <a class="mamak" href="#">
                 <i class="uil uil-shopping-bag shop"></i>
@@ -36,7 +51,7 @@
         </div>
     </section>
     <section class="product-table">
-        <h4>Tabel Produk</h4>
+        <h4>Daftar Barang</h4>
         <table>
             <thead>
                 <tr>
@@ -47,29 +62,24 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Helm</td>
-                    <td>50</td>
-                    <td>50.0000</td>
-                    <td>Mamak</td>
-                </tr>
-                <tr>
-                    <td>Helm</td>
-                    <td>50</td>
-                    <td>50.0000</td>
-                    <td>Mamak</td>
-                </tr>
-                <tr>
-                    <td>Helm</td>
-                    <td>50</td>
-                    <td>50.0000</td>
-                    <td>Mamak</td>
-                </tr>
+                <?php
+                $sqlBarang = mysqli_query($konek, "SELECT * FROM barang ORDER BY id DESC");
+                while ($k = mysqli_fetch_array($sqlBarang)) {
+                ?>
+                    <tr>
+                        <td><?= $k["nama_barang"] ?></td>
+                        <td><?= $k["stok"] ?></td>
+                        <td>Rp <?= number_format($k["harga_jual"], 0, ",", ".") ?></td>
+                        <td><?= $k["punya"] ?></td>
+                    </tr>
+                <?php
+                }
+                ?>
             </tbody>
         </table>
     </section>
     <section class="menu">
-        <a href="#" class="menu-list">
+        <a href="./" class="menu-list">
             <i class="fa-solid fa-house"></i>
             <span>Beranda</span>
         </a>
