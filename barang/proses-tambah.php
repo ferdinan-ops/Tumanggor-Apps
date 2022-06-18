@@ -40,7 +40,7 @@ $uploadPath = "uploads/";
 $status = $statusMsg = '';
 if (isset($_POST["submit"])) {
     $status = 'error';
-    if (!empty($_FILES["image"]["name"])) {
+    if (!empty($_FILES["image"]["name"]) && !empty($_POST["nama"]) && !empty($_POST["stok"]) && !empty($_POST["punya"]) && !empty($_POST["modal"]) && !empty($_POST["jual"]) && !empty($_POST["korting"]) && !empty($_POST["rak"]) && !empty($_POST["kategori"])) {
         // data
         $namaBarang = $_POST["nama"];
         $stok = $_POST["stok"];
@@ -54,7 +54,7 @@ if (isset($_POST["submit"])) {
         // info file
         $fileName = basename($_FILES["image"]["name"]);
         $imageUploadPath = $uploadPath . $fileName;
-        $lokasiBaru = "{$uploadPath}/{$fileName}";
+        $lokasiBaru = "{$uploadPath}{$fileName}";
         $fileType = pathinfo($imageUploadPath, PATHINFO_EXTENSION);
 
         // hanya membolehkan format file tertentu 
@@ -83,9 +83,6 @@ if (isset($_POST["submit"])) {
             $statusMsg = 'Maaf, hanya file JPG, JPEG, dan PNG yang dibolehkan untuk diupload.';
         }
     } else {
-        $statusMsg = 'Silakan pilih file gambar untuk diupload.';
+        header("Location:.././");
     }
 }
-
-// menampilkan status 
-echo $statusMsg;

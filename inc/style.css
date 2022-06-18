@@ -85,7 +85,7 @@ header {
     padding: var(--padding-section);
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 45%;
+    grid-auto-columns: 35%;
     gap: 1rem;
     overflow-x: auto;
     padding-bottom: 15px;
@@ -98,7 +98,6 @@ header {
 .kategori {
     text-align: center;
     display: inline-block;
-    padding: 7px 10px;
     border-radius: 30px;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
@@ -108,14 +107,19 @@ header {
     margin-right: 10px;
 }
 
-.add-product {
+.search-product {
     background-color: var(--primary-color);
-    line-height: 40px;
-    padding: 0 15px;
-    height: 40px;
+    line-height: 39px;
+    padding: 0 8px;
+    height: 39px;
     border-radius: 8px;
+}
+
+.search-product input[type="submit"] {
     color: white;
-    font-size: 18px;
+    border: none;
+    background: none;
+    font-size: 14px;
 }
 
 .list-product {
@@ -301,14 +305,23 @@ header {
     color: var(--primary-color);
 }
 
-.tambah-barang {
+.btn-barang a {
     font-weight: 500;
-    color: white;
     text-align: center;
     display: block;
     padding: 10px;
-    background-color: var(--primary-color);
     border-radius: 10px;
+}
+
+.btn-barang a:nth-child(1) {
+    color: white;
+    background-color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.btn-barang a:nth-child(2) {
+    background-color: #30ab764a;
+    color: var(--primary-color);
 }
 
 .punya-barang a i {
@@ -404,4 +417,21 @@ header {
     padding: 10px;
     font-weight: 500;
     margin: 20px 0;
+}
+
+.menu-cari {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: var(--padding-section);
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-section {
+    margin-top: 100px;
+    padding: 0 9%;
 }

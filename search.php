@@ -1,6 +1,3 @@
-<?php
-include "inc/config.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,31 +14,11 @@ include "inc/config.php";
 
 <body>
     <?php
-    if (isset($_GET['m'])) {
-        if ($_GET['m'] == 'barang') {
-            include 'barang/barang.php';
-        } elseif ($_GET['m'] == 'tambah-barang') {
-            include 'barang/tambah-barang.php';
-        } elseif ($_GET['m'] == 'detail') {
-            include 'detail.php';
-        } elseif ($_GET['m'] == 'search') {
-            include 'search.php';
-        } elseif ($_GET['m'] == 'tambah-kategori') {
-            include 'kategori/kategori.php';
-        }
-    } else {
+    include "inc/config.php";
+    if (!empty($_POST['teks'])) {
+        $teks = $_POST["teks"];
     ?>
-        <header>
-            <div class="hamburger">
-                <i class="uil uil-shopping-bag shop"></i>
-            </div>
-            <div class="profile-picture">
-                <img src="images/logo.png" width="50px">
-            </div>
-        </header>
-        <h2 class="judul">Produk</h2>
-
-        <form action="search.php" class="search" method="POST">
+        <form class="menu-cari" method="POST">
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" name="teks" placeholder="Cari Produk">
@@ -50,8 +27,7 @@ include "inc/config.php";
                 <input type="submit" value="Cari">
             </div>
         </form>
-        <h3 class="judul" style="font-weight: 500;">Kategori</h3>
-        <div class="list-kategori">
+        <div class="list-kategori  search-section">
             <div class="kategori">
                 <span>Helm</span>
             </div>
@@ -76,15 +52,19 @@ include "inc/config.php";
         </div>
         <section class="list-product">
             <?php
-            $sqlProduk = mysqli_query($konek, "SELECT * FROM barang ORDER BY id DESC");
+            $sqlProduk = mysqli_query($konek, "SELECT * FROM barang WHERE nama_barang LIKE '%$teks%'");
             while ($k = mysqli_fetch_array($sqlProduk)) {
             ?>
                 <div class="product">
-                    <img src="barang/<?= $k["lokasi"] ?>" width="120px">
+                    <img src="barang/<?= $k['lokasi'] ?>" width="120px">
                     <div class="desc-product">
                         <div class="desc">
-                            <a href="./?m=detail&id=<?= $k['id'] ?>" class="namaBarang"><?= $k["nama_barang"] ?></a>
-                            <span>Rp <?= number_format($k["harga_jual"], 0, ",", ".") ?></span>
+                            <a href="./?m=detail&id=<?= $k['id'] ?>" class="namaBarang">
+                                <?= $k["nama_barang"] ?>
+                            </a>
+                            <span>Rp
+                                <?= number_format($k["harga_jual"], 0, ",", ".") ?>
+                            </span>
                         </div>
                         <div class="add">
                             <a href="#"><i class="fa-solid fa-plus"></i> Keranjang</a>
@@ -114,6 +94,8 @@ include "inc/config.php";
             </a>
         </section>
     <?php
+    } else {
+        header("Location: ./");
     }
     ?>
 </body>
