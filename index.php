@@ -20,8 +20,6 @@ include "inc/config.php";
     if (isset($_GET['m'])) {
         if ($_GET['m'] == 'barang') {
             include 'barang/barang.php';
-        } elseif ($_GET['m'] == 'tambah-barang') {
-            include 'barang/tambah-barang.php';
         } elseif ($_GET['m'] == 'detail') {
             include 'detail.php';
         } elseif ($_GET['m'] == 'search') {

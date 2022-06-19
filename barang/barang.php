@@ -97,7 +97,7 @@
                 <div class="hamburger">
                     <i class="fa-solid fa-angle-left" onclick="history.back();"></i>
                 </div>
-                <h4>Tambah Barang</h4>
+                <h4>Edit Barang</h4>
                 <div class="profile-picture">
                     <i class="fa-solid fa-ellipsis"></i>
                 </div>
@@ -166,7 +166,7 @@
         <section class="barang">
             <div class="btn-barang">
                 <a href="./?m=barang&tipe=tambah" class="tambah-barang">Tambah Barang</a>
-                <a href="./?m=tambah" kategori" class="tambah-barang">Tambah Kategori</a>
+                <a href="./?m=tambah-kategori" kategori" class="tambah-barang">Tambah Kategori</a>
             </div>
             <div class="punya-barang">
                 <a class="mamak" href="#">
@@ -181,7 +181,7 @@
         </section>
         <section class="product-table">
             <h4>Daftar Barang</h4>
-            <table>
+            <table cellpadding="5">
                 <thead>
                     <tr>
                         <th>Nama</th>
@@ -209,6 +209,7 @@
                     ?>
                 </tbody>
             </table>
+
         </section>
         <section class="menu">
             <a href="./" class="menu-list">
