@@ -1,7 +1,9 @@
 <?php
 include "inc/config.php";
 if (isset($_GET['id'])) {
-    $sql = mysqli_query($konek, "SELECT * FROM barang WHERE $_GET[id]=id");
+    $sql = mysqli_query($konek, "SELECT barang.*,kategori.nama_kategori 
+            FROM barang INNER JOIN kategori ON barang.id_kategori=kategori.id 
+            WHERE barang.id='$_GET[id]'");
     while ($k = mysqli_fetch_array($sql)) {
 ?>
 
@@ -10,7 +12,7 @@ if (isset($_GET['id'])) {
                 <div class="hamburger">
                     <i class="fa-solid fa-angle-left" onclick="history.back();"></i>
                 </div>
-                <h4>Helm</h4>
+                <h4><?= $k["nama_kategori"] ?></h4>
                 <div class="profile-picture">
                     <i class="fa-solid fa-ellipsis"></i>
                 </div>
@@ -64,18 +66,3 @@ if (isset($_GET['id'])) {
     }
 }
 ?>
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tumanggor Apps</title>
-    <script src="https://kit.fontawesome.com/ca43952785.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="inc/style.css">
-</head> -->
-
-
-<!-- </html> -->

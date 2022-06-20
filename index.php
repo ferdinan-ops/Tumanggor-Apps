@@ -50,27 +50,16 @@ include "inc/config.php";
         </form>
         <h3 class="judul" style="font-weight: 500;">Kategori</h3>
         <div class="list-kategori">
-            <div class="kategori">
-                <span>Helm</span>
-            </div>
-            <div class="kategori">
-                <span>Baterai</span>
-            </div>
-            <div class="kategori">
-                <span>Jok</span>
-            </div>
-            <div class="kategori">
-                <span>Aksesoris</span>
-            </div>
-            <div class="kategori">
-                <span>Seken</span>
-            </div>
-            <div class="kategori">
-                <span>Seken</span>
-            </div>
-            <div class="kategori">
-                <span>Seken</span>
-            </div>
+            <?php
+            $sqlKategori = mysqli_query($konek, "SELECT * FROM kategori ORDER BY nama_kategori ASC");
+            while ($de = mysqli_fetch_array($sqlKategori)) {
+            ?>
+                <div class="kategori">
+                    <a href="./?m=search&ktg=<?= $de["id"] ?>"><?= $de["nama_kategori"] ?></a>
+                </div>
+            <?php
+            }
+            ?>
         </div>
         <section class="list-product">
             <?php

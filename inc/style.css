@@ -107,6 +107,10 @@ header {
     margin-right: 10px;
 }
 
+.kategori a {
+    color: var(--primary-color);
+}
+
 .search-product {
     background-color: var(--primary-color);
     line-height: 39px;
@@ -154,8 +158,9 @@ header {
     margin-bottom: 50px;
 }
 
-.desc p {
+.desc a {
     font-weight: bold;
+    margin-bottom: 5px;
 }
 
 .add {
@@ -452,6 +457,11 @@ header {
     padding: var(--padding-section);
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.menu-cari>* {
+    margin: 0 5px;
 }
 
 .search-section {
