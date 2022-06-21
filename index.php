@@ -13,6 +13,17 @@ include "inc/config.php";
     <link rel="stylesheet" href="inc/style.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="icon" type="icon/x-image" href="images/logo.png">
+    <style>
+        .menu .menu-list:nth-child(1) {
+            color: var(--primary-color);
+        }
+
+        .menu .menu-list:nth-child(2):hover,
+        .menu .menu-list:nth-child(3):hover,
+        .menu .menu-list:nth-child(4):hover {
+            color: var(--primary-color);
+        }
+    </style>
 </head>
 
 <body>

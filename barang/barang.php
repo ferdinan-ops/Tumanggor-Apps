@@ -152,6 +152,142 @@
             </section>
         <?php
         }
+    } elseif (isset($_GET['punya'])) {
+        if ($_GET['punya'] == 'mamak') {
+        ?>
+            <header>
+                <div class="hamburger">
+                    <i class="fa-solid fa-angle-left" onclick="history.back();"></i>
+                </div>
+                <h4>Punya Mamak</h4>
+                <div class="profile-picture">
+                    <i class="fa-solid fa-ellipsis"></i>
+                </div>
+            </header>
+            <section class="product-table">
+                <h4>Daftar Barang</h4>
+                <div class="table-barang" style="overflow-x:auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nama</th>
+                                <th>Stok</th>
+                                <th>Harga Jual</th>
+                                <th>Harga Modal</th>
+                                <th>Harga Korting</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $sqlBarang = mysqli_query($konek, "SELECT * FROM barang WHERE punya='Mamak' ORDER BY id DESC");
+                            while ($k = mysqli_fetch_array($sqlBarang)) {
+                            ?>
+                                <tr>
+                                    <td><?= $k["nama_barang"] ?></td>
+                                    <td><?= $k["stok"] ?></td>
+                                    <td>Rp <?= number_format($k["harga_jual"], 0, ",", ".") ?></td>
+                                    <td>Rp <?= number_format($k["harga_modal"], 0, ",", ".") ?></td>
+                                    <td>Rp <?= number_format($k["harga_modal"], 0, ",", ".") ?></td>
+                                    <td>
+                                        <a href="?m=barang&tipe=edit&id=<?= $k["id"] ?>">Edit</a>
+                                        <a onclick="confirm('Anda yakin akan menghapus?')" href="barang/proses_hapus.php?id=$k[id]">Hapus</a>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section class="menu">
+                <a href="./" class="menu-list">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Beranda</span>
+                </a>
+                <a href="#" class="menu-list">
+                    <i class="fa-solid fa-box"></i>
+                    <span>Barang</span>
+                </a>
+                <a href="#" class="menu-list">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span>Keranjang</span>
+                </a>
+                <a href="#" class="menu-list">
+                    <i class="fa-solid fa-file"></i>
+                    <span>Laporan</span>
+                </a>
+            </section>
+        <?php
+        } elseif ($_GET['punya'] == 'bapak') {
+        ?>
+            <header>
+                <div class="hamburger">
+                    <i class="fa-solid fa-angle-left" onclick="history.back();"></i>
+                </div>
+                <h4>Punya Bapak</h4>
+                <div class="profile-picture">
+                    <i class="fa-solid fa-ellipsis"></i>
+                </div>
+            </header>
+            <section class="product-table">
+                <h4>Daftar Barang</h4>
+                <div class="table-barang" style="overflow-x:auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nama</th>
+                                <th>Stok</th>
+                                <th>Harga Jual</th>
+                                <th>Harga Modal</th>
+                                <th>Harga Korting</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $sqlBarang = mysqli_query($konek, "SELECT * FROM barang WHERE punya='Bapak' ORDER BY id DESC");
+                            while ($k = mysqli_fetch_array($sqlBarang)) {
+                            ?>
+                                <tr>
+                                    <td><?= $k["nama_barang"] ?></td>
+                                    <td><?= $k["stok"] ?></td>
+                                    <td>Rp <?= number_format($k["harga_jual"], 0, ",", ".") ?></td>
+                                    <td>Rp <?= number_format($k["harga_modal"], 0, ",", ".") ?></td>
+                                    <td>Rp <?= number_format($k["harga_modal"], 0, ",", ".") ?></td>
+                                    <td>
+                                        <a href="?m=barang&tipe=edit&id=<?= $k["id"] ?>">Edit</a>
+                                        <a onclick="confirm('Anda yakin akan menghapus?')" href="barang/proses_hapus.php?id=$k[id]">Hapus</a>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section class="menu">
+                <a href="./" class="menu-list">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Beranda</span>
+                </a>
+                <a href="#" class="menu-list">
+                    <i class="fa-solid fa-box"></i>
+                    <span>Barang</span>
+                </a>
+                <a href="#" class="menu-list">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span>Keranjang</span>
+                </a>
+                <a href="#" class="menu-list">
+                    <i class="fa-solid fa-file"></i>
+                    <span>Laporan</span>
+                </a>
+            </section>
+        <?php
+        }
     } else {
         ?>
         <header>
@@ -170,11 +306,11 @@
                 <a href="./?m=tambah-kategori" kategori" class="tambah-barang">Tambah Kategori</a>
             </div>
             <div class="punya-barang">
-                <a class="mamak" href="#">
+                <a class="mamak" href="./?m=barang&punya=mamak">
                     <i class="uil uil-shopping-bag shop"></i>
                     <p>Punya Mamak</p>
                 </a>
-                <a class="bapak" href="#">
+                <a class="bapak" href="./?m=barang&punya=bapak">
                     <i class="uil uil-shopping-bag shop"></i>
                     <p>Punya Bapak</p>
                 </a>
@@ -182,35 +318,42 @@
         </section>
         <section class="product-table">
             <h4>Daftar Barang</h4>
-            <table cellpadding="5">
-                <thead>
-                    <tr>
-                        <th>Nama</th>
-                        <th>Stok</th>
-                        <th>Harga</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $sqlBarang = mysqli_query($konek, "SELECT * FROM barang ORDER BY id DESC");
-                    while ($k = mysqli_fetch_array($sqlBarang)) {
-                    ?>
+            <div class="table-barang" style="overflow-x:auto;">
+                <table>
+                    <thead>
                         <tr>
-                            <td><?= $k["nama_barang"] ?></td>
-                            <td><?= $k["stok"] ?></td>
-                            <td>Rp <?= number_format($k["harga_jual"], 0, ",", ".") ?></td>
-                            <td>
-                                <a href="?m=barang&tipe=edit&id=<?= $k["id"] ?>">Edit</a>
-                                <a onclick="confirm('Anda yakin akan menghapus?')" href="barang/proses_hapus.php?id=$k[id]">Hapus</a>
-                            </td>
+                            <th>Nama</th>
+                            <th>Stok</th>
+                            <th>Harga Jual</th>
+                            <th>Harga Modal</th>
+                            <th>Harga Korting</th>
+                            <th>Punya</th>
+                            <th>Aksi</th>
                         </tr>
-                    <?php
-                    }
-                    ?>
-                </tbody>
-            </table>
-
+                    </thead>
+                    <tbody>
+                        <?php
+                        $sqlBarang = mysqli_query($konek, "SELECT * FROM barang ORDER BY id DESC");
+                        while ($k = mysqli_fetch_array($sqlBarang)) {
+                        ?>
+                            <tr>
+                                <td><?= $k["nama_barang"] ?></td>
+                                <td><?= $k["stok"] ?></td>
+                                <td>Rp <?= number_format($k["harga_jual"], 0, ",", ".") ?></td>
+                                <td>Rp <?= number_format($k["harga_modal"], 0, ",", ".") ?></td>
+                                <td>Rp <?= number_format($k["harga_modal"], 0, ",", ".") ?></td>
+                                <td><?= $k["punya"] ?></td>
+                                <td>
+                                    <a href="?m=barang&tipe=edit&id=<?= $k["id"] ?>">Edit</a>
+                                    <a onclick="confirm('Anda yakin akan menghapus?')" href="barang/proses_hapus.php?id=$k[id]">Hapus</a>
+                                </td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
         </section>
         <section class="menu">
             <a href="./" class="menu-list">
