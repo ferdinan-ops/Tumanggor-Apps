@@ -166,40 +166,28 @@
             </header>
             <section class="product-table">
                 <h4>Daftar Barang</h4>
-                <div class="table-barang" style="overflow-x:auto;">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Nama</th>
-                                <th>Stok</th>
-                                <th>Harga Jual</th>
-                                <th>Harga Modal</th>
-                                <th>Harga Korting</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $sqlBarang = mysqli_query($konek, "SELECT * FROM barang WHERE punya='Mamak' ORDER BY id DESC");
-                            while ($k = mysqli_fetch_array($sqlBarang)) {
-                            ?>
-                                <tr>
-                                    <td><?= $k["nama_barang"] ?></td>
-                                    <td><?= $k["stok"] ?></td>
-                                    <td>Rp <?= number_format($k["harga_jual"], 0, ",", ".") ?></td>
-                                    <td>Rp <?= number_format($k["harga_modal"], 0, ",", ".") ?></td>
-                                    <td>Rp <?= number_format($k["harga_modal"], 0, ",", ".") ?></td>
-                                    <td>
-                                        <a href="?m=barang&tipe=edit&id=<?= $k["id"] ?>">Edit</a>
-                                        <a onclick="confirm('Anda yakin akan menghapus?')" href="barang/proses_hapus.php?id=$k[id]">Hapus</a>
-                                    </td>
-                                </tr>
-                            <?php
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
+                <section class="list-product" style="padding: 0;">
+                    <?php
+                    $sqlProduk = mysqli_query($konek, "SELECT * FROM barang ORDER BY id DESC");
+                    while ($k = mysqli_fetch_array($sqlProduk)) {
+                    ?>
+                        <div class="product">
+                            <img src="barang/<?= $k["lokasi"] ?>" width="120px">
+                            <div class="desc-product">
+                                <div class="desc">
+                                    <a href="./?m=detail&id=<?= $k['id'] ?>" class="namaBarang"><?= $k["nama_barang"] ?></a>
+                                    <span>Rp <?= number_format($k["harga_jual"], 0, ",", ".") ?></span>
+                                </div>
+                                <div class="punya-barang">
+                                    <a href="#">Edit</a>
+                                    <a href="#">Hapus</a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                </section>
             </section>
             <section class="menu">
                 <a href="./" class="menu-list">

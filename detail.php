@@ -55,9 +55,14 @@ if (isset($_GET['id'])) {
             </section>
             <section class="menu-detail">
                 <div class="container-menu-detail">
-                    <a href="#">Edit Barang</a>
-                    <a href="#">Tambah Stok</a>
+                    <p style="text-align: center;margin: 10px 0;">Qty</p>
+                    <form class="qty">
+                        <i class="uil uil-minus"></i>
+                        <input type="text" name="qty" value="0">
+                        <i class="uil uil-plus"></i>
+                    </form>
                     <a href="#">Tambah Ke Keranjang</a>
+                    <a href="#">Tambah Ke Laporan</a>
                 </div>
             </section>
         </body>

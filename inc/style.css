@@ -164,7 +164,7 @@ header {
 }
 
 .add {
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
     padding: 8px 0;
     text-align: center;
     font-size: 12px;
@@ -173,6 +173,12 @@ header {
     bottom: 10px;
     left: 10px;
     right: 10px;
+}
+
+.punya-barang {
+    display: flex;
+    flex-direction: column;
+
 }
 
 .add a {
@@ -264,7 +270,8 @@ header {
     padding-bottom: 20px;
 }
 
-.menu-detail a {
+.menu-detail a,
+.qty {
     display: block;
     text-align: center;
     padding: 10px;
@@ -273,17 +280,30 @@ header {
     border-radius: 8px;
 }
 
-.menu-detail a:nth-child(1) {
-    background-color: #F8F8FA;
+.qty i {
     color: var(--primary-color);
 }
 
-.menu-detail a:nth-child(2) {
+.qty {
+    border: 1px solid var(--primary-color);
+}
+
+
+.qty input {
+    text-align: center;
+    margin: 0 10px;
+    /* width: 20%; */
+    border: none;
+    font-size: 16px;
+}
+
+
+.menu-detail a:nth-child(3) {
     background-color: #30ab764a;
     color: var(--primary-color);
 }
 
-.menu-detail a:nth-child(3) {
+.menu-detail a:nth-child(4) {
     background-color: var(--primary-color);
     color: white;
 }
@@ -358,14 +378,12 @@ header {
 }
 
 
-th,
-td {
+.table-barang th,
+.table-barang td {
     width: 500px;
     text-align: center;
     padding: 5px 30px;
 }
-
-
 
 .product-table th {
     font-size: 14px;
