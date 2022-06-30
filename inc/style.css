@@ -178,7 +178,16 @@ header {
 .punya-barang {
     display: flex;
     flex-direction: column;
+}
 
+.punya-barang a:nth-child(1) {
+    background-color: #4089AF;
+    color: white;
+}
+
+.punya-barang a:nth-child(2) {
+    background-color: #D34B41;
+    color: white;
 }
 
 .add a {
