@@ -164,7 +164,7 @@ header {
 }
 
 .add {
-    /* background-color: var(--primary-color); */
+    background-color: var(--primary-color);
     padding: 8px 0;
     text-align: center;
     font-size: 12px;
@@ -175,19 +175,31 @@ header {
     right: 10px;
 }
 
-.punya-barang {
+.barang-punya {
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
+    margin-top: -30px;
 }
 
-.punya-barang a:nth-child(1) {
+.barang-punya a:nth-child(1) {
     background-color: #4089AF;
     color: white;
 }
 
-.punya-barang a:nth-child(2) {
+.barang-punya a:nth-child(2) {
     background-color: #D34B41;
     color: white;
+}
+
+.barang-punya a {
+    padding: 8px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 10px 0;
+    margin-top: 0;
 }
 
 .add a {

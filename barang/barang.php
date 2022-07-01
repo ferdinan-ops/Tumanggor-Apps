@@ -178,7 +178,7 @@
                                     <a href="./?m=detail&id=<?= $k['id'] ?>" class="namaBarang"><?= $k["nama_barang"] ?></a>
                                     <span>Rp <?= number_format($k["harga_jual"], 0, ",", ".") ?></span>
                                 </div>
-                                <div class="punya-barang">
+                                <div class="barang-punya">
                                     <a href="?m=barang&tipe=edit&id=<?= $k["id"] ?>">Edit</a>
                                     <a onclick="confirm('Anda yakin akan menghapus?')" href="barang/proses_hapus.php?id=$k[id]">Hapus</a>
                                 </div>
