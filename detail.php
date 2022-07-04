@@ -58,13 +58,32 @@ if (isset($_GET['id'])) {
                     <p style="text-align: center;margin: 10px 0;">Qty</p>
                     <form class="qty">
                         <i class="uil uil-minus"></i>
-                        <input type="text" name="qty" value="0">
-                        <i class="uil uil-plus"></i>
+                        <input type="text" name="qty" value="0" id="qty">
+                        <i class="uil uil-plus" id="minus"></i>
                     </form>
                     <a href="#">Tambah Ke Keranjang</a>
                     <a href="#">Tambah Ke Laporan</a>
                 </div>
             </section>
+            <script>
+                const minus = document.querySelector(".qty i:nth-child(1)");
+                const plus = document.querySelector(".qty i:nth-child(3)");
+
+                minus.style.cursor = "pointer";
+                plus.style.cursor = "pointer";
+
+                minus.addEventListener('click', function() {
+                    if (document.getElementById("qty").value > 0) {
+                        document.getElementById("qty").value--
+
+                    } else {
+                        document.getElementById("qty").value = 0
+                    }
+                });
+                plus.addEventListener('click', function() {
+                    document.getElementById("qty").value++
+                });
+            </script>
         </body>
 
 <?php
