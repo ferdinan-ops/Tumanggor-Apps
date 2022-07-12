@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --primary-color: #30AB75;
+    --secondary-color: #f2f2f2;
+    --icon-color: #ababab;
+    --font-color: #1B1B1B;
+    --padding-section: 20px 9%;
+    --padding-header: 0 9%;
+    --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+    /* outline: 1px solid red; */
+}
+
+body {
+    background-color: #F9FDFE;
+}
+
+header {
+    padding: var(--padding-section);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 5px solid #dedede;
+}
+
+.checkout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 15px 9%;
+    margin-top: 90px;
+}
+
+.checkout button {
+    text-decoration: none;
+    background-color: var(--primary-color);
+    padding: 8px 16px;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+}
+
+
+.keranjang {
+    display: flex;
+    padding: var(--padding-header);
+    gap: 0 20px;
+    align-items: center;
+    border-bottom: 5px solid #dedede;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+.keranjang img {
+    border-radius: 10px;
+    /* box-shadow: var(--box-shadow); */
+}
+
+.keranjang input {
+    width: 50px;
+}
+
+.detail>* {
+    margin-bottom: 8px;
+}
+
+.action {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0;
+}
+
+.action i {
+    font-size: 28px;
+    color: var(--icon-color);
+}
+
+.detail {
+    width: 100%;
+}
+
+.action .qty i {
+    font-size: 18px;
+    margin: 0 6px;
+    color: var(--primary-color);
+}
+
+.action .qty {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+}
+
+.action input {
+    text-align: center;
+    border: none;
+    font-size: 16px;
+}

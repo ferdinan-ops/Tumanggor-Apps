@@ -340,11 +340,11 @@
                 <i class="fa-solid fa-box"></i>
                 <span>Barang</span>
             </a>
-            <a href="#" class="menu-list">
+            <a href="./?m=keranjang" class="menu-list">
                 <i class="fa-solid fa-bag-shopping"></i>
                 <span>Keranjang</span>
             </a>
-            <a href="#" class="menu-list">
+            <a href="./?m=laporan" class="menu-list">
                 <i class="fa-solid fa-file"></i>
                 <span>Laporan</span>
             </a>

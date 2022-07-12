@@ -6,6 +6,18 @@ if (isset($_GET['id'])) {
             WHERE barang.id='$_GET[id]'");
     while ($k = mysqli_fetch_array($sql)) {
 ?>
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Tumanggor Apps</title>
+            <script src="https://kit.fontawesome.com/ca43952785.js" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+            <link rel="stylesheet" href="inc/style.css">
+        </head>
 
         <body>
             <header>
@@ -21,11 +33,11 @@ if (isset($_GET['id'])) {
                 <img src="barang/<?= $k["lokasi"] ?>" width="80%">
             </section>
             <section class="product-name">
-                <h3><?= $k["nama_barang"] ?></h3>
-                <span>Rp <?= number_format($k["harga_jual"], 0, ",", ".") ?></span>
+                <h3 style="font-weight: 500;"><?= $k["nama_barang"] ?></h3>
+                <h2 style="margin: 10px 0;">Rp <?= number_format($k["harga_jual"], 0, ",", ".") ?></h2>
             </section>
             <section class="detail-product">
-                <h4>Detail Produk</h4>
+                <h3>Detail Produk</h3>
                 <table cellspacing="0">
                     <tr>
                         <td>Stok</td>
@@ -53,7 +65,7 @@ if (isset($_GET['id'])) {
                     </tr>
                 </table>
             </section>
-            <section class="menu-detail">
+            <!-- <section class="menu-detail">
                 <div class="container-menu-detail">
                     <p style="text-align: center;margin: 10px 0;">Qty</p>
                     <form class="qty">
@@ -64,7 +76,7 @@ if (isset($_GET['id'])) {
                     <a href="#">Tambah Ke Keranjang</a>
                     <a href="#">Tambah Ke Laporan</a>
                 </div>
-            </section>
+            </section> -->
             <script>
                 const minus = document.querySelector(".qty i:nth-child(1)");
                 const plus = document.querySelector(".qty i:nth-child(3)");

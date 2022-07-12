@@ -11,13 +11,13 @@
 }
 
 * {
-    /* border: 1px solid black; */
     margin: 0;
     padding: 0;
     text-decoration: none;
     outline: none;
     box-sizing: border-box;
     font-family: Poppins, sans-serif;
+    outline: 1px solid red;
 }
 
 body {
@@ -48,6 +48,7 @@ header {
 
 .judul {
     padding: var(--padding-header);
+    font-weight: bold;
 }
 
 .search {
@@ -111,6 +112,14 @@ header {
     color: var(--primary-color);
 }
 
+a {
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: inherit;
+}
+
 .search-product {
     background-color: var(--primary-color);
     line-height: 39px;
@@ -147,9 +156,9 @@ header {
 
 .namaBarang {
     display: block;
-    color: black;
+    color: #444;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 420;
 }
 
 
@@ -159,8 +168,12 @@ header {
 }
 
 .desc a {
-    font-weight: bold;
+    /* font-weight: bold; */
     margin-bottom: 5px;
+}
+
+.desc span {
+    font-weight: bold;
 }
 
 .add {
@@ -269,6 +282,7 @@ header {
     margin: var(--padding-section);
     box-shadow: var(--box-shadow);
     padding: 15px;
+    margin-bottom: 50px;
 }
 
 .detail-product table {
@@ -276,12 +290,12 @@ header {
     margin: 10px 0;
 }
 
-.detail-product h4 {
+.detail-product h3 {
     font-weight: 600;
 }
 
 .detail-product table tr td {
-    font-size: 14px;
+    font-size: 16px;
     border-bottom: 1px solid #A1A1A1;
     padding: 5px 0;
 }
@@ -380,7 +394,7 @@ header {
     font-size: 38px;
 }
 
-.product-table {
+/* .product-table {
     padding: var(--padding-section);
     margin-bottom: 100px;
 }
@@ -389,7 +403,7 @@ header {
     font-weight: 600;
     color: var(--primary-color);
     margin-bottom: 10px;
-}
+} */
 
 .table {
     border-collapse: collapse;
@@ -406,7 +420,7 @@ header {
     padding: 5px 30px;
 }
 
-.product-table th {
+/* .product-table th {
     font-size: 14px;
 }
 
@@ -442,7 +456,7 @@ header {
 .product-table table tbody {
     background-color: #dfdfe1;
     width: 100px;
-}
+} */
 
 /* laporan */
 .laporan {
