@@ -52,7 +52,7 @@
                     <p><?= $cart['nama_barang'] ?></p>
                     <h4>Rp. <?= number_format($cart["harga"] * $cart['qty'], 0, ",", ".") ?></h4>
                     <div class="action">
-                        <i class="uil uil-trash-alt"></i>
+                        <a onclick="return confirm('Anda Yakin Ingin Menghapus?')" href="keranjang/proses-hapus.php?id=<?= $cart['id'] ?>"><i class="uil uil-trash-alt"></i></a>
                         <div class="qty">
                             <i class="uil uil-minus minus"></i>
                             <input type="text" name="qty[]" value="<?= $cart['qty'] ?>" id="qty" min="1">
@@ -88,6 +88,10 @@
                 }
             }
         });
+
+        function hapus() {
+
+        }
     </script>
 </body>
 

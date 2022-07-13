@@ -91,7 +91,7 @@ header {
 }
 
 .hamburger i {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .hamburger .shop {
@@ -99,4 +99,52 @@ header {
     background-color: #30ab7667;
     border-radius: 50%;
     padding: 0 5px;
+}
+
+.total {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    background-color: #30ab761c;
+    padding: 10px 20px;
+    color: var(--primary-color);
+    border-bottom: 5px solid var(--primary-color);
+}
+
+.laporan {
+    padding: var(--padding-header);
+}
+
+.img-laporan i {
+    font-size: 38px;
+    margin-right: 30px;
+}
+
+.desc-laporan {
+    font-weight: 500;
+}
+
+.desc-laporan p {
+    font-size: 12px;
+}
+
+.desc-laporan span {
+    font-size: 24px;
+    display: block;
+}
+
+.desc-laporan span:nth-child(1) {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+a.print {
+    background-color: rgb(0, 102, 255);
+    font-size: 28px;
+    padding: 2px 15px;
+    border-radius: 8px;
+}
+
+a {
+    text-decoration: none;
 }

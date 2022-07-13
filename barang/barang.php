@@ -36,7 +36,7 @@
                 <div class="hamburger">
                     <i class="fa-solid fa-angle-left" onclick="history.back();"></i>
                 </div>
-                <h4>Tambah Barang</h4>
+                <h5>Tambah Barang</h5>
                 <div class="profile-picture">
                     <i class="fa-solid fa-ellipsis"></i>
                 </div>
@@ -97,7 +97,7 @@
                 <div class="hamburger">
                     <i class="fa-solid fa-angle-left" onclick="history.back();"></i>
                 </div>
-                <h4>Edit Barang</h4>
+                <h5>Edit Barang</h5>
                 <div class="profile-picture">
                     <i class="fa-solid fa-ellipsis"></i>
                 </div>
@@ -159,7 +159,7 @@
                 <div class="hamburger">
                     <i class="fa-solid fa-angle-left" onclick="history.back();"></i>
                 </div>
-                <h4>Punya Mamak</h4>
+                <h5>Punya Mamak</h5>
                 <div class="profile-picture">
                     <i class="fa-solid fa-ellipsis"></i>
                 </div>
@@ -180,7 +180,7 @@
                                 </div>
                                 <div class="barang-punya">
                                     <a href="?m=barang&tipe=edit&id=<?= $k["id"] ?>">Edit</a>
-                                    <a onclick="confirm('Anda yakin akan menghapus?')" href="barang/proses_hapus.php?id=$k[id]">Hapus</a>
+                                    <a onclick="return confirm('Anda yakin akan menghapus?')" href="barang/proses-hapus.php?id=<?= $k['id'] ?>">Hapus</a>
                                 </div>
                             </div>
                         </div>
@@ -198,11 +198,11 @@
                     <i class="fa-solid fa-box"></i>
                     <span>Barang</span>
                 </a>
-                <a href="#" class="menu-list">
+                <a href="./?m=keranjang" class="menu-list">
                     <i class="fa-solid fa-bag-shopping"></i>
                     <span>Keranjang</span>
                 </a>
-                <a href="#" class="menu-list">
+                <a href="./?m=laporan" class="menu-list">
                     <i class="fa-solid fa-file"></i>
                     <span>Laporan</span>
                 </a>
@@ -214,7 +214,7 @@
                 <div class="hamburger">
                     <i class="fa-solid fa-angle-left" onclick="history.back();"></i>
                 </div>
-                <h4>Punya Bapak</h4>
+                <h5>Punya Bapak</h5>
                 <div class="profile-picture">
                     <i class="fa-solid fa-ellipsis"></i>
                 </div>
@@ -233,9 +233,9 @@
                                     <a href="./?m=detail&id=<?= $k['id'] ?>" class="namaBarang"><?= $k["nama_barang"] ?></a>
                                     <span>Rp <?= number_format($k["harga_jual"], 0, ",", ".") ?></span>
                                 </div>
-                                <div class="punya-barang">
+                                <div class="barang-punya">
                                     <a href="?m=barang&tipe=edit&id=<?= $k["id"] ?>">Edit</a>
-                                    <a onclick="confirm('Anda yakin akan menghapus?')" href="barang/proses_hapus.php?id=$k[id]">Hapus</a>
+                                    <a onclick="return confirm('Anda yakin akan menghapus?')" href="barang/proses-hapus.php?id=<?= $k['id'] ?>">Hapus</a>
                                 </div>
                             </div>
                         </div>
@@ -253,11 +253,11 @@
                     <i class="fa-solid fa-box"></i>
                     <span>Barang</span>
                 </a>
-                <a href="#" class="menu-list">
+                <a href="./?m=keranjang" class="menu-list">
                     <i class="fa-solid fa-bag-shopping"></i>
                     <span>Keranjang</span>
                 </a>
-                <a href="#" class="menu-list">
+                <a href="./?m=laporan" class="menu-list">
                     <i class="fa-solid fa-file"></i>
                     <span>Laporan</span>
                 </a>
@@ -321,7 +321,7 @@
                                 <td><?= $k["punya"] ?></td>
                                 <td>
                                     <a href="?m=barang&tipe=edit&id=<?= $k["id"] ?>">Edit</a>
-                                    <a onclick="confirm('Anda yakin akan menghapus?')" href="barang/proses_hapus.php?id=$k[id]">Hapus</a>
+                                    <a onclick="confirm('Anda yakin akan menghapus?')" href="barang/proses-hapus.php?id=<?= $k['id'] ?>">Hapus</a>
                                 </td>
                             </tr>
                         <?php

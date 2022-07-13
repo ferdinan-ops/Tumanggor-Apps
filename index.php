@@ -15,6 +15,8 @@ if (isset($_GET['m'])) {
         include 'keranjang/keranjang.php';
     } elseif ($_GET['m'] == 'laporan') {
         include 'laporan/laporan.php';
+    } elseif ($_GET['m'] == 'cetak') {
+        include 'laporan/cetak.php';
     }
 } else {
 ?>
@@ -40,6 +42,10 @@ if (isset($_GET['m'])) {
             .menu .menu-list:nth-child(3):hover,
             .menu .menu-list:nth-child(4):hover {
                 color: var(--primary-color);
+            }
+
+            a:hover {
+                color: #333;
             }
         </style>
     </head>
@@ -72,7 +78,7 @@ if (isset($_GET['m'])) {
             while ($de = mysqli_fetch_array($sqlKategori)) {
             ?>
                 <div class="kategori">
-                    <a href="./?m=search&ktg=<?= $de["id"] ?>"><?= $de["nama_kategori"] ?></a>
+                    <a class="text-success" href="./?m=search&ktg=<?= $de["id"] ?>"><?= $de["nama_kategori"] ?></a>
                 </div>
             <?php
             }
@@ -92,7 +98,7 @@ if (isset($_GET['m'])) {
                             <span>Rp <?= number_format($k["harga_jual"], 0, ",", ".") ?></span>
                         </div>
                         <div class="add">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#cartModal<?= $i ?>"><i class="fa-solid fa-plus"></i> Keranjang</a>
+                            <a class="text-light" href="#" data-bs-toggle="modal" data-bs-target="#cartModal<?= $i ?>"><i class="fa-solid fa-plus"></i> Keranjang</a>
                         </div>
                     </div>
                 </div>
@@ -112,8 +118,8 @@ if (isset($_GET['m'])) {
                                         <input type="hidden" name="hrg_jual" value="<?= $k["harga_jual"] ?>">
                                         <input type="hidden" name="hrg_korting" value="<?= $k["harga_korting"] ?>">
                                         <div class="mb-3">
-                                            <label for="jlhHarga" class="form-label">Jumlah Barang</label>
-                                            <input type="number" class="form-control" id="jlhHarga" name="qty">
+                                            <label for="jlhHarga" class="form-label jlh-barang">Jumlah Barang</label>
+                                            <input type="number" class="form-control" id="jlhHarga" name="qty" min="1" max="<?= $k['stok'] ?>">
                                         </div>
                                         <div class="mb-3">
                                             <label for="" class="form-label">Harga:</label>
@@ -131,17 +137,17 @@ if (isset($_GET['m'])) {
 
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="harga" id="custom" value="harga_custom">
+                                                <input class="form-check-input" type="radio" name="harga" id="custom" value="harga_custom" data-bs-toggle="collapse" data-bs-target="#custom_harga" aria-expanded="false" aria-controls="custom_harga">
                                                 <label class="form-check-label" for="custom" data-bs-toggle="collapse" data-bs-target="#custom_harga" aria-expanded="false" aria-controls="custom_harga">
                                                     Harga Custom
                                                 </label>
-                                                <div class="collapse" id="custom_harga">
+                                                <div class="collapse mt-2" id="custom_harga">
                                                     <input type="number" class="form-control" name="harga_custom">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer mt-5">
-                                            <button type="submit" class="btn add btn-success"><i class="fa-solid fa-plus"></i> Keranjang</button>
+                                            <button type="submit" class="btn add btn-success modal-keranjang-btn"><i class="fa-solid fa-plus"></i> Keranjang</button>
                                         </div>
                                     </form>
                                 </div>
@@ -149,6 +155,7 @@ if (isset($_GET['m'])) {
                         </div>
                     </div>
                 </div>
+                <span class="cek-stok"><?= $k['stok'] ?></span>
             <?php
                 $i++;
             }
@@ -180,8 +187,30 @@ if (isset($_GET['m'])) {
 
     <!-- Modal -->
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        const stokDisplay = document.querySelectorAll('.cek-stok');
+        for (let i = 0; i < stokDisplay.length; i++) {
+            stokDisplay[i].style.display = "none";
+        }
+
+        const stok = document.querySelectorAll(".modal-keranjang-btn");
+        for (let i = 0; i < stok.length; i++) {
+            if (stokDisplay[i].innerHTML == 0 || stokDisplay[i].innerHTML == "0") {
+                stok[i].disabled = true;
+            }
+        }
+
+        // const jlhBarang=document.querySelectorAll(".jlh-barang");
+        // for (let i = 0; i < jlhBarang.length; i++) {
+
+        // }
+
+        if (stok == 0) {
+            $(".modal-keranjang-btn").disabled = true;
+        }
+    </script>
     </body>
 
     </html>

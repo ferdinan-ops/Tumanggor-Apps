@@ -19,7 +19,7 @@ include "inc/config.php";
         <div class="hamburger">
             <i class="fa-solid fa-angle-left" onclick="history.back();"></i>
         </div>
-        <h4>Tambah Kategori</h4>
+        <h5>Tambah Kategori</h5>
         <div class="profile-picture">
             <i class="fa-solid fa-ellipsis"></i>
         </div>

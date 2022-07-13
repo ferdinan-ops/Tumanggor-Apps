@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Jun 2022 pada 08.57
+-- Waktu pembuatan: 13 Jul 2022 pada 08.18
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.28
 
@@ -46,7 +46,8 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id`, `nama_barang`, `stok`, `punya`, `harga_modal`, `harga_jual`, `harga_korting`, `foto`, `lokasi`, `id_rak`, `id_kategori`) VALUES
-(2, 'coba', 50, 'Mamak', 50000, 100000, 90000, 'helm.jpg', 'uploads//helm.jpg', 1, 1);
+(2, 'coba', 41, 'Mamak', 50000, 100000, 90000, 'helm.jpg', 'uploads//helm.jpg', 1, 1),
+(3, 'Baterai Mobil GS Kering 55D23L', 5, 'Mamak', 1000000, 1100000, 1050000, 'baterai.jpg', 'uploads/baterai.jpg', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -93,6 +94,21 @@ INSERT INTO `kategori` (`id`, `nama_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `keranjang`
+--
+
+CREATE TABLE `keranjang` (
+  `id` int(11) NOT NULL,
+  `id_barang` int(11) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `tgl` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `transaksi`
 --
 
@@ -130,6 +146,13 @@ ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `keranjang`
+--
+ALTER TABLE `keranjang`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_barang` (`id_barang`);
+
+--
 -- Indeks untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
@@ -143,7 +166,7 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `gudang`
@@ -156,6 +179,12 @@ ALTER TABLE `gudang`
 --
 ALTER TABLE `kategori`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `keranjang`
+--
+ALTER TABLE `keranjang`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `transaksi`

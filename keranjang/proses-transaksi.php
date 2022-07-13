@@ -15,17 +15,5 @@ for ($x = 0; $x < count($id); $x++) {
     mysqli_query($konek, $sqlTransaksi);
     $sqlBarang = "UPDATE barang SET stok='$updateStok' WHERE id='$idBarang[$x]'";
     mysqli_query($konek, $sqlBarang);
-
-    // if ($konek->query($sqlTransaksi) === TRUE) {
-    //     $sqlBarang = "UPDATE barang SET stok='$updateStok' WHERE id='$idBarang[$x]'";
-    //     if ($konek->query($sqlBarang) === TRUE) {
-    //         // header('Location:./');
-    //     } else {
-    //         echo "Error: " . $sqlBarang . "<br>" . $konek->error;
-    //     }
-    //     $konek->close();
-    // } else {
-    //     echo "Error: " . $sqlTransaksi . "<br>" . $konek->error;
-    // }
-    // $konek->close();
 }
+header("Location: .././?m=laporan");
