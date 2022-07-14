@@ -40,9 +40,15 @@ $uploadPath = "uploads/";
 $status = $statusMsg = '';
 if (isset($_POST["submit"])) {
     $status = 'error';
-    if (!empty($_FILES["image"]["name"])) {
-        // data
-
+    if (!empty($_FILES["image"]["name"]) && !empty($_POST["nama"]) && !empty($_POST["stok"]) && !empty($_POST["punya"]) && !empty($_POST["modal"]) && !empty($_POST["jual"]) && !empty($_POST["korting"]) && !empty($_POST["rak"]) && !empty($_POST["kategori"])) {
+        $namaBarang = $_POST["nama"];
+        $stok = $_POST["stok"];
+        $punya = $_POST["punya"];
+        $hargaModal = $_POST["modal"];
+        $hargaJual = $_POST["jual"];
+        $hargaKorting = $_POST["korting"];
+        $namaRak = $_POST["rak"];
+        $kategori = $_POST["kategori"];
 
         // info file
         $fileName = basename($_FILES["image"]["name"]);
@@ -60,9 +66,9 @@ if (isset($_POST["submit"])) {
             $compressedImage = compressImage($imageTemp, $imageUploadPath, 75);
 
             if ($compressedImage) {
-                $sqlTambah = "UPDATE barang SET nama_foto='$fileName' ,lokasi='$lokasiBaru' WHERE id='$_POST[id]'";
+                $sqlTambah = "UPDATE barang SET nama_barang='$namaBarang',stok='$stok',punya='$punya',harga_modal='$hargaModal',harga_jual='$hargaJual',harga_korting='$hargaKorting',nama_foto='$fileName' ,lokasi='$lokasiBaru' WHERE id='$_POST[id]'";
                 if ($konek->query($sqlTambah) === TRUE) {
-                    header('Location:./');
+                    header('Location:.././');
                 } else {
                     echo "Error: " . $sqlTambah . "<br>" . $konek->error;
                 }
@@ -74,21 +80,12 @@ if (isset($_POST["submit"])) {
         } else {
             $statusMsg = 'Maaf, hanya file JPG, JPEG, dan PNG yang dibolehkan untuk diupload.';
         }
-    } elseif (!empty($_POST["nama"]) && !empty($_POST["stok"]) && !empty($_POST["punya"]) && !empty($_POST["modal"]) && !empty($_POST["jual"]) && !empty($_POST["korting"]) && !empty($_POST["rak"]) && !empty($_POST["kategori"])) {
-        $namaBarang = $_POST["nama"];
-        $stok = $_POST["stok"];
-        $punya = $_POST["punya"];
-        $hargaModal = $_POST["modal"];
-        $hargaJual = $_POST["jual"];
-        $hargaKorting = $_POST["korting"];
-        $namaRak = $_POST["rak"];
-        $kategori = $_POST["kategori"];
-
-        $sqlTambah = "UPDATE barang SET nama_barang='$namaBarang',stok='$stok',punya='$punya',harga_modal='$hargaModal',harga_jual='$hargaJual',harga_korting='$hargaKorting' WHERE id='$_POST[id]'";
-        if ($konek->query($sqlTambah) === TRUE) {
-            header('Location:./');
+    } elseif (empty($_FILES["images"]["name"])) {
+        $sqlUpdate = "UPDATE barang SET nama_barang='$namaBarang',stok='$stok',punya='$punya',harga_modal='$hargaModal',harga_jual='$hargaJual',harga_korting='$hargaKorting' WHERE id='$_POST[id]'";
+        if ($konek->query($sqlUpdate) === TRUE) {
+            header('Location:.././');
         } else {
-            echo "Error: " . $sqlTambah . "<br>" . $konek->error;
+            echo "Error: " . $sqlUpdate . "<br>" . $konek->error;
         }
 
         $konek->close();
