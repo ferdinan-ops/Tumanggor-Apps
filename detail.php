@@ -65,18 +65,12 @@ if (isset($_GET['id'])) {
                     </tr>
                 </table>
             </section>
-            <!-- <section class="menu-detail">
+            <section class="menu-detail">
                 <div class="container-menu-detail">
-                    <p style="text-align: center;margin: 10px 0;">Qty</p>
-                    <form class="qty">
-                        <i class="uil uil-minus"></i>
-                        <input type="text" name="qty" value="0" id="qty">
-                        <i class="uil uil-plus" id="minus"></i>
-                    </form>
-                    <a href="#">Tambah Ke Keranjang</a>
-                    <a href="#">Tambah Ke Laporan</a>
+                    <a href="?m=barang&tipe=edit&id=<?= $_GET["id"] ?>">Edit</a>
+                    <a onclick="return confirm('Anda yakin akan menghapus?')" href="barang/proses-hapus.php?id=<?= $k['id'] ?>">Hapus</a>
                 </div>
-            </section> -->
+            </section>
             <script>
                 const minus = document.querySelector(".qty i:nth-child(1)");
                 const plus = document.querySelector(".qty i:nth-child(3)");

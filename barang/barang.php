@@ -103,7 +103,7 @@
                 </div>
             </header>
             <section class="form-tambah-barang">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="barang/proses-edit.php" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<?= $de["id"] ?>">
                     <label for="">Nama Barang</label>
                     <input type="text" name="nama" value="<?= $de["nama_barang"] ?>">

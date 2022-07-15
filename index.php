@@ -206,9 +206,33 @@ if (isset($_GET['m'])) {
         // for (let i = 0; i < jlhBarang.length; i++) {
 
         // }
+        const radioBtn = document.querySelectorAll('input[type=radio]');
+        let formValid = false;
+        for (let i = 0; i < radioBtn.length; i++) {
+            if (radioBtn[i].checked) {
+                formValid = true;
+            }
+        }
 
-        if (stok == 0) {
-            $(".modal-keranjang-btn").disabled = true;
+        for (let i = 0; i < stok.length; i++) {
+            if (formValid == false) {
+                stok[i].disabled = true;
+            } else if (formValid == true) {
+                stok[i].disabled = false;
+            }
+        }
+
+        const width = document.querySelector('.width');
+        let windowWidth = window.innerWidth;
+        const newH1 = document.createElement("h1");
+        const teksNewH1 = document.createTextNode("Maaf website ini hanya digunakan untuk versi mobile!");
+        newH1.appendChild(teksNewH1);
+        newH1.style.color = 'red';
+
+        if (windowWidth > 450) {
+            document.body.innerHTML = '';
+            document.body.classList.add("width");
+            document.body.appendChild(newH1);
         }
     </script>
     </body>

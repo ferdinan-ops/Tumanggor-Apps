@@ -16,9 +16,9 @@
     <?php
     include "inc/config.php";
     if (!empty($_POST['teks'])) {
-        $teks = $_POST["teks"];
+        $teks = $_POST['teks'];
     ?>
-        <form class="menu-cari" method="POST">
+        <form class="menu-cari" method="POST" style="background-color: #fff;">
             <i class="fa-solid fa-angle-left" onclick="history.back();"></i>
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -68,7 +68,7 @@
     <?php
     } elseif (!empty($_GET['ktg'])) {
     ?>
-        <form class="menu-cari" method="POST">
+        <form class="menu-cari" method="POST" style="background-color: #fff;">
             <i class="fa-solid fa-angle-left" onclick="history.back();"></i>
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>

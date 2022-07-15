@@ -16,4 +16,10 @@ for ($x = 0; $x < count($id); $x++) {
     $sqlBarang = "UPDATE barang SET stok='$updateStok' WHERE id='$idBarang[$x]'";
     mysqli_query($konek, $sqlBarang);
 }
-header("Location: .././?m=laporan");
+?>
+<script>
+    alert("Selamat, Barang sudah dimasukkan kedalam Laporan");
+    window.location.href = ".././?m=laporan";
+</script>
+<?php
+// header("Location: .././?m=laporan");

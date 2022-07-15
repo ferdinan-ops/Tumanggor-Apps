@@ -350,6 +350,23 @@ a:hover {
     border-radius: 10px;
 }
 
+.container-menu-detail a:nth-child(1) {
+    background-color: #4089AF;
+    color: white;
+}
+
+.container-menu-detail a:nth-child(2) {
+    background-color: #D34B41;
+    color: white;
+}
+
+.width {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
 /* barang */
 .barang {
     padding: var(--padding-section);
@@ -538,6 +555,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1;
 }
 
 .menu-cari>* {

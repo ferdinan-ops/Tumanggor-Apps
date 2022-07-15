@@ -50,7 +50,7 @@
                 <img src="barang/<?= $cart['lokasi'] ?>" width="80px">
                 <div class="detail">
                     <p><?= $cart['nama_barang'] ?></p>
-                    <h4>Rp. <?= number_format($cart["harga"] * $cart['qty'], 0, ",", ".") ?></h4>
+                    <h4>Rp. <?= number_format($totalHarga = $cart["harga"] * $cart['qty'], 0, ",", ".") ?></h4>
                     <div class="action">
                         <a onclick="return confirm('Anda Yakin Ingin Menghapus?')" href="keranjang/proses-hapus.php?id=<?= $cart['id'] ?>"><i class="uil uil-trash-alt"></i></a>
                         <div class="qty">
@@ -61,7 +61,7 @@
                     </div>
                 </div>
             </div>
-        <?php $total += $cart['harga'];
+        <?php $total += $totalHarga;
         } ?>
         <section class="checkout">
             <div class="total-harga">

@@ -70,7 +70,12 @@ if (isset($_POST["submit"])) {
                 $sqlTambah = "INSERT INTO barang (nama_barang, stok, punya, harga_modal, harga_jual, harga_korting, foto, lokasi, id_rak, id_kategori)
                 VALUES ('$namaBarang','$stok','$punya','$hargaModal','$hargaJual','$hargaKorting','$fileName','$lokasiBaru','$namaRak','$kategori'  )";
                 if ($konek->query($sqlTambah) === TRUE) {
-                    header('Location:./');
+?>
+                    <script>
+                        alert("Selamat, Data Barang anda telah di-tambahkan");
+                        window.location.href = ".././";
+                    </script>
+        <?php
                 } else {
                     echo "Error: " . $sqlTambah . "<br>" . $konek->error;
                 }
@@ -83,6 +88,11 @@ if (isset($_POST["submit"])) {
             $statusMsg = 'Maaf, hanya file JPG, JPEG, dan PNG yang dibolehkan untuk diupload.';
         }
     } else {
-        header("Location:.././");
+        ?>
+        <script>
+            alert("Maaf Anda harus mengisi semua data dengan baik dan benar! :(");
+            window.location.href = ".././";
+        </script>
+<?php
     }
 }
