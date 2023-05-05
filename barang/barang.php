@@ -31,7 +31,7 @@
     include "inc/config.php";
     if (isset($_GET['tipe'])) {
         if ($_GET['tipe'] == 'tambah') {
-    ?>
+            ?>
             <header>
                 <div class="hamburger">
                     <i class="fa-solid fa-angle-left" onclick="history.back();"></i>
@@ -63,9 +63,9 @@
                         <?php
                         $sqlRak = mysqli_query($konek, "SELECT * FROM gudang ORDER BY nama_rak ASC");
                         while ($k = mysqli_fetch_array($sqlRak)) {
-                        ?>
+                            ?>
                             <option value="<?= $k["id"] ?>"><?= $k["nama_rak"] ?></option>
-                        <?php
+                            <?php
                         }
                         ?>
                     </select>
@@ -74,9 +74,9 @@
                         <?php
                         $sqlKategori = mysqli_query($konek, "SELECT * FROM kategori ORDER BY nama_kategori ASC");
                         while ($k = mysqli_fetch_array($sqlKategori)) {
-                        ?>
+                            ?>
                             <option value="<?= $k["id"] ?>"><?= $k["nama_kategori"] ?></option>
-                        <?php
+                            <?php
                         }
                         ?>
                     </select>
@@ -85,14 +85,14 @@
                     <input type="submit" name="submit" value="Kirim">
                 </form>
             </section>
-        <?php
+            <?php
         } elseif ($_GET['tipe'] == 'edit') {
             $sqlEdit = mysqli_query($konek, "SELECT barang.*,kategori.nama_kategori,gudang.nama_rak 
             FROM barang INNER JOIN kategori ON barang.id_kategori=kategori.id 
             INNER JOIN gudang ON barang.id_rak=gudang.id
             WHERE barang.id='$_GET[id]'");
             $de = mysqli_fetch_array($sqlEdit);
-        ?>
+            ?>
             <header>
                 <div class="hamburger">
                     <i class="fa-solid fa-angle-left" onclick="history.back();"></i>
@@ -127,9 +127,9 @@
                         <?php
                         $sqlRak = mysqli_query($konek, "SELECT * FROM gudang ORDER BY nama_rak ASC");
                         while ($k = mysqli_fetch_array($sqlRak)) {
-                        ?>
+                            ?>
                             <option value="<?= $k["id"] ?>"><?= $k["nama_rak"] ?></option>
-                        <?php
+                            <?php
                         }
                         ?>
                     </select>
@@ -139,9 +139,9 @@
                         <?php
                         $sqlKategori = mysqli_query($konek, "SELECT * FROM kategori ORDER BY nama_kategori ASC");
                         while ($k = mysqli_fetch_array($sqlKategori)) {
-                        ?>
+                            ?>
                             <option value="<?= $k["id"] ?>"><?= $k["nama_kategori"] ?></option>
-                        <?php
+                            <?php
                         }
                         ?>
                     </select>
@@ -150,11 +150,11 @@
                     <input type="submit" name="submit" value="Kirim">
                 </form>
             </section>
-        <?php
+            <?php
         }
     } elseif (isset($_GET['punya'])) {
         if ($_GET['punya'] == 'mamak') {
-        ?>
+            ?>
             <header>
                 <div class="hamburger">
                     <i class="fa-solid fa-angle-left" onclick="history.back();"></i>
@@ -170,21 +170,24 @@
                     <?php
                     $sqlProduk = mysqli_query($konek, "SELECT * FROM barang WHERE punya='Mamak' ORDER BY id DESC");
                     while ($k = mysqli_fetch_array($sqlProduk)) {
-                    ?>
+                        ?>
                         <div class="product">
                             <img src="barang/<?= $k["lokasi"] ?>" width="120px">
                             <div class="desc-product">
                                 <div class="desc">
                                     <a href="./?m=detail&id=<?= $k['id'] ?>" class="namaBarang"><?= $k["nama_barang"] ?></a>
-                                    <span>Rp <?= number_format($k["harga_jual"], 0, ",", ".") ?></span>
+                                    <span>Rp
+                                        <?= number_format($k["harga_jual"], 0, ",", ".") ?>
+                                    </span>
                                 </div>
                                 <div class="barang-punya">
                                     <a href="?m=barang&tipe=edit&id=<?= $k["id"] ?>">Edit</a>
-                                    <a onclick="return confirm('Anda yakin akan menghapus?')" href="barang/proses-hapus.php?id=<?= $k['id'] ?>">Hapus</a>
+                                    <a onclick="return confirm('Anda yakin akan menghapus?')"
+                                        href="barang/proses-hapus.php?id=<?= $k['id'] ?>">Hapus</a>
                                 </div>
                             </div>
                         </div>
-                    <?php
+                        <?php
                     }
                     ?>
                 </section>
@@ -207,9 +210,9 @@
                     <span>Laporan</span>
                 </a>
             </section>
-        <?php
+            <?php
         } elseif ($_GET['punya'] == 'bapak') {
-        ?>
+            ?>
             <header>
                 <div class="hamburger">
                     <i class="fa-solid fa-angle-left" onclick="history.back();"></i>
@@ -225,21 +228,24 @@
                     <?php
                     $sqlProduk = mysqli_query($konek, "SELECT * FROM barang WHERE punya='Bapak' ORDER BY id DESC");
                     while ($k = mysqli_fetch_array($sqlProduk)) {
-                    ?>
+                        ?>
                         <div class="product">
                             <img src="barang/<?= $k["lokasi"] ?>" width="120px">
                             <div class="desc-product">
                                 <div class="desc">
                                     <a href="./?m=detail&id=<?= $k['id'] ?>" class="namaBarang"><?= $k["nama_barang"] ?></a>
-                                    <span>Rp <?= number_format($k["harga_jual"], 0, ",", ".") ?></span>
+                                    <span>Rp
+                                        <?= number_format($k["harga_jual"], 0, ",", ".") ?>
+                                    </span>
                                 </div>
                                 <div class="barang-punya">
                                     <a href="?m=barang&tipe=edit&id=<?= $k["id"] ?>">Edit</a>
-                                    <a onclick="return confirm('Anda yakin akan menghapus?')" href="barang/proses-hapus.php?id=<?= $k['id'] ?>">Hapus</a>
+                                    <a onclick="return confirm('Anda yakin akan menghapus?')"
+                                        href="barang/proses-hapus.php?id=<?= $k['id'] ?>">Hapus</a>
                                 </div>
                             </div>
                         </div>
-                    <?php
+                        <?php
                     }
                     ?>
                 </section>
@@ -262,7 +268,7 @@
                     <span>Laporan</span>
                 </a>
             </section>
-        <?php
+            <?php
         }
     } else {
         ?>
@@ -311,20 +317,33 @@
                         <?php
                         $sqlBarang = mysqli_query($konek, "SELECT * FROM barang ORDER BY id DESC");
                         while ($k = mysqli_fetch_array($sqlBarang)) {
-                        ?>
+                            ?>
                             <tr>
-                                <td><?= $k["nama_barang"] ?></td>
-                                <td><?= $k["stok"] ?></td>
-                                <td>Rp <?= number_format($k["harga_jual"], 0, ",", ".") ?></td>
-                                <td>Rp <?= number_format($k["harga_modal"], 0, ",", ".") ?></td>
-                                <td>Rp <?= number_format($k["harga_modal"], 0, ",", ".") ?></td>
-                                <td><?= $k["punya"] ?></td>
+                                <td>
+                                    <?= $k["nama_barang"] ?>
+                                </td>
+                                <td>
+                                    <?= $k["stok"] ?>
+                                </td>
+                                <td>Rp
+                                    <?= number_format($k["harga_jual"], 0, ",", ".") ?>
+                                </td>
+                                <td>Rp
+                                    <?= number_format($k["harga_modal"], 0, ",", ".") ?>
+                                </td>
+                                <td>Rp
+                                    <?= number_format($k["harga_modal"], 0, ",", ".") ?>
+                                </td>
+                                <td>
+                                    <?= $k["punya"] ?>
+                                </td>
                                 <td>
                                     <a href="?m=barang&tipe=edit&id=<?= $k["id"] ?>">Edit</a>
-                                    <a onclick="confirm('Anda yakin akan menghapus?')" href="barang/proses-hapus.php?id=<?= $k['id'] ?>">Hapus</a>
+                                    <a onclick="confirm('Anda yakin akan menghapus?')"
+                                        href="barang/proses-hapus.php?id=<?= $k['id'] ?>">Hapus</a>
                                 </td>
                             </tr>
-                        <?php
+                            <?php
                         }
                         ?>
                     </tbody>
@@ -349,7 +368,7 @@
                 <span>Laporan</span>
             </a>
         </section>
-    <?php
+        <?php
     }
     ?>
 </body>
